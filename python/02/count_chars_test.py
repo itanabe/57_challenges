@@ -28,3 +28,6 @@ class TestCharCounter(unittest.TestCase):
     def test_double_byte_char(self):
         cc = CharCounter(u"市")
         self.assertEqual(1, cc.count_chars())
+
+if __name__ == '__main__':
+    unittest.main()
