@@ -13,15 +13,21 @@ class CharCounter(object):
 
 
 def main():
-    cc = CharCounter(raw_input("What is the input string? "))
-    ccount = cc.count_chars()
-    plural_suffix = '' if ccount == 1 else 's'
+    ccount = 0
+    while (ccount < 1):
+        cc = CharCounter(raw_input("What is the input string? "))
+        ccount = cc.count_chars()
 
-    print '{} has {} character{}.'.format(
-        cc.get_input_string(),
-        ccount,
-        plural_suffix
-    )
+        if(ccount > 0):
+            plural_suffix = '' if ccount == 1 else 's'
+
+            print '{} has {} character{}.'.format(
+            cc.get_input_string(),
+            ccount,
+            plural_suffix
+            )
+        else:
+            print "The input string must be longer than 0 characters."
 
 if __name__ == '__main__':
     main()
