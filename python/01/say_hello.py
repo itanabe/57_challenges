@@ -4,6 +4,9 @@ def get_name():
 def get_greeting(name):
     return "Hello, {}, nice to meet you!".format(name)
 
-name = get_name()
-greeting = get_greeting(name)
-print greeting
+name = ''
+
+while (len(name) == 0):
+    name = get_name()
+
+print get_greeting(name)
