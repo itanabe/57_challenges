@@ -1,0 +1,6 @@
+first = raw_input("What is the first number? ")
+second = raw_input("What is the second nnumber? ")
+print '{} + {} = {}'.format(first, second, int(first) + int(second))
+print '{} - {} = {}'.format(first, second, int(first) - int(second))
+print '{} * {} = {}'.format(first, second, int(first) * int(second))
+print '{} / {} = {}'.format(first, second, int(first) / int(second))
