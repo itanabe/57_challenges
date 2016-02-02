@@ -3,30 +3,50 @@ second = None
 n1 = None
 n2 = None
 
-while (n1 is None):
-    first = raw_input("What is the first number? ")
-    try:
-        n1 = int(first)
-        if n1 < 0:
-            n1 = None
-            print ("Please enter non-negative number")
-            continue
-    except:
-        continue
 
-while (n2 is None):
-    second = raw_input("What is the second number? ")
-    try:
-        n2 = int(second)
-        if n1 < 0:
-            n2 = None
-            print ("Please enter non-negative number")
-            continue
-    except:
-        continue
+def get_two_numbers():
+    numbers = [
+        ['first', None],
+        ['second', None],
+    ]
 
-template = '{} + {} = {}\n{} - {} = {}\n{} * {} = {}\n{} / {} = {}'
-print template.format(first, second, n1 + n2,
-                      first, second, n1 - n2,
-                      first, second, n1 * n2,
-                      first, second, n1 / n2)
+    for number in numbers:
+        n = None
+        while n is None:
+            s = raw_input("What is the " + number[0] + " number? ")
+            try:
+                n = int(s)
+                if n < 0:
+                    print("Please enter a non-negative number.")
+                    n = None
+                    continue
+            except:
+                continue
+        number[1] = n
+
+    return numbers[0][1], numbers[1][1]
+
+
+def compute(n1, n2):
+    add = n1 + n2
+    subtract = n1 - n2
+    multiply = n1 * n2
+    divide = None
+    try:
+        divide = n1 / n2
+    except:
+        divide = 'N/A'
+    return add, subtract, multiply, divide
+
+
+def main():
+    n1, n2 = get_two_numbers()
+    nsum, nsub, nmul, ndiv = compute(n1, n2)
+    template = '{} + {} = {}\n{} - {} = {}\n{} * {} = {}\n{} / {} = {}'
+    print template.format(n1, n2, nsum,
+                          n1, n2, nsub,
+                          n1, n2, nmul,
+                          n1, n2, ndiv)
+
+if __name__ == '__main__':
+    main()
